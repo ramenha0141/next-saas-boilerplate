@@ -1,0 +1,22 @@
+{
+	"name": "next-saas-boilerplate",
+	"private": true,
+	"scripts": {
+		"dev": "turbo dev",
+		"build": "turbo build",
+		"format": "bunx @biomejs/biome check --write --no-errors-on-unmatched",
+		"sync_git_hooks": "lefthook install"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.1",
+		"lefthook": "^1.6.16",
+		"prettier": "^3.2.5",
+		"turbo": "^2.0.4",
+		"typescript": "^5.4.5"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"packageManager": "bun@1.1.13",
+	"workspaces": ["apps/*", "packages/*"]
+}
