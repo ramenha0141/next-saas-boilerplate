@@ -12,6 +12,7 @@ export const authConfig: NextAuthConfig = {
 	secret: process.env.AUTH_SECRET,
 	pages: {
 		signIn: '/sign-in',
+		error: '/auth-error',
 	},
 	experimental: {
 		enableWebAuthn: true,
