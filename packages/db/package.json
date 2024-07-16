@@ -11,7 +11,11 @@
 		"env": "dotenv -e ../../apps/web/.env.development.local --",
 		"typecheck": "tsc --noEmit"
 	},
-	"dependencies": { "@prisma/client": "^5.16.2" },
+	"dependencies": {
+		"@neondatabase/serverless": "^0.9.4",
+		"@prisma/adapter-neon": "^5.17.0",
+		"@prisma/client": "^5.16.2"
+	},
 	"devDependencies": {
 		"dotenv-cli": "^7.4.2",
 		"prisma": "^5.16.2",
