@@ -5,6 +5,5 @@
 		"moduleResolution": "Bundler",
 		"module": "ESNext"
 	},
-	"include": ["components", "lib", "shadcn"],
 	"exclude": ["node_modules", "dist"]
 }

@@ -1,8 +1,9 @@
 'use client';
 
 import { ThemeProvider } from 'next-themes';
-// biome-ignore lint/style/useImportType: React import
-import * as React from 'react';
+import type * as React from 'react';
+
+import { ConfirmDialogProvider } from '../confirm-dialog';
 
 export function Providers({ children }: { children: React.ReactNode }) {
 	return (
@@ -12,7 +13,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
 			enableSystem
 			disableTransitionOnChange
 		>
-			{children}
+			<ConfirmDialogProvider
+				defaultOptions={{ cancelButton: { variant: 'outline' } }}
+			>
+				{children}
+			</ConfirmDialogProvider>
 		</ThemeProvider>
 	);
 }
