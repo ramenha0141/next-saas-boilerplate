@@ -5,11 +5,18 @@ import Passkey from 'next-auth/providers/passkey';
 import { cache } from 'react';
 
 import { prisma } from '@repo/db';
+import { env } from '@repo/env';
 
 export const authConfig: NextAuthConfig = {
 	adapter: PrismaAdapter(prisma),
-	providers: [Google, Passkey],
-	secret: process.env.AUTH_SECRET,
+	providers: [
+		Google({
+			clientId: env.AUTH_GOOGLE_ID,
+			clientSecret: env.AUTH_GOOGLE_SECRET,
+		}),
+		Passkey,
+	],
+	secret: env.AUTH_SECRET,
 	pages: {
 		signIn: '/sign-in',
 		error: '/auth-error',

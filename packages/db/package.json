@@ -5,19 +5,19 @@
 	"type": "module",
 	"main": "./index.ts",
 	"scripts": {
-		"generate": "bun run env -- prisma generate",
-		"db:push": "bun run env -- prisma db push",
-		"db:studio": "bun run env -- prisma studio",
-		"env": "dotenv -e ../../apps/web/.env.development.local --",
+		"generate": "bun run load_env -- prisma generate",
+		"db:push": "bun run load_env -- prisma db push",
+		"db:studio": "bun run load_env -- prisma studio",
+		"load_env": "dotenvx run -f ../env/.env.development.local --",
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
+		"@repo/env": "workspace:*",
 		"@neondatabase/serverless": "^0.9.4",
 		"@prisma/adapter-neon": "^5.17.0",
 		"@prisma/client": "^5.16.2"
 	},
 	"devDependencies": {
-		"dotenv-cli": "^7.4.2",
 		"prisma": "^5.16.2",
 		"typescript": "^5"
 	}
