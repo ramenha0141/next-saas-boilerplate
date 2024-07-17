@@ -7,7 +7,6 @@ import { Alert, AlertDescription, AlertTitle } from '../shadcn/alert';
 import { Card, CardContent, CardHeader, CardTitle } from '../shadcn/card';
 
 const errors: Record<string, string> = {
-	Configuration: 'サーバー側の設定に問題があります',
 	AccessDenied: 'アクセスが拒否されました',
 	Verification: 'リンクの有効期限が切れています',
 	Default: '不明',
