@@ -3,9 +3,10 @@ import '@repo/tailwind-config/globals.css';
 import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
 
-import { Providers } from '@repo/ui/components/providers';
 import { cn } from '@repo/ui/lib/utils';
 import { Toaster } from '@repo/ui/shadcn/sonner';
+
+import { Providers } from './_components/providers';
 
 export const metadata: Metadata = {
 	title: 'Next.js SaaS Boilerplate',
@@ -18,7 +19,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='ja' suppressHydrationWarning>
+		<html lang='ja'>
 			<body
 				className={cn(
 					GeistSans.variable,

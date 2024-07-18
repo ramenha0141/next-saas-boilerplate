@@ -3,13 +3,13 @@
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { useTheme } from 'next-themes';
 
-import { Button } from '../shadcn/button';
+import { Button } from '@repo/ui/shadcn/button';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from '../shadcn/dropdown-menu';
+} from '@repo/ui/shadcn/dropdown-menu';
 
 export function ThemeToggle() {
 	const { setTheme } = useTheme();

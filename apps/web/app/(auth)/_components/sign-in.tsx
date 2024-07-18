@@ -1,18 +1,17 @@
 'use client';
 
+import { Loader2 } from 'lucide-react';
+import { signIn } from 'next-auth/webauthn';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
-
-import { Loader2 } from 'lucide-react';
-import { signIn } from 'next-auth/webauthn';
-
 import { toast } from 'sonner';
-import { cn } from '../lib/utils';
-import { Button } from '../shadcn/button';
-import { Card, CardContent, CardHeader, CardTitle } from '../shadcn/card';
-import { Input } from '../shadcn/input';
-import { Label } from '../shadcn/label';
+
+import { cn } from '@repo/ui/lib/utils';
+import { Button } from '@repo/ui/shadcn/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@repo/ui/shadcn/card';
+import { Input } from '@repo/ui/shadcn/input';
+import { Label } from '@repo/ui/shadcn/label';
 
 export function SignIn() {
 	const callbackUrl = useSearchParams().get('callbackUrl') ?? '/';

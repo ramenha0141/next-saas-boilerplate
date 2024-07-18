@@ -1,4 +1,4 @@
-import { AuthError } from '@repo/ui/components/auth-error';
+import { AuthError } from '../_components/auth-error';
 
 export default function Page() {
 	return <AuthError />;

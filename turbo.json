@@ -1,19 +1,17 @@
 {
 	"$schema": "https://turbo.build/schema.json",
 	"tasks": {
-		"generate": {
-			"dependsOn": ["^generate"]
-		},
+		"generate": {},
 		"build": {
-			"dependsOn": ["generate", "^build"],
+			"dependsOn": ["^generate", "^build"],
 			"inputs": ["$TURBO_DEFAULT$", ".env", ".env.*"],
 			"outputs": [".next/**", "!.next/cache/**"]
 		},
 		"typecheck": {
-			"dependsOn": ["^typecheck"],
 			"cache": false
 		},
 		"dev": {
+			"dependsOn": ["^generate"],
 			"cache": false,
 			"persistent": true
 		}

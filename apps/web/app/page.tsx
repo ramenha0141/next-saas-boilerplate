@@ -1,6 +1,7 @@
 import { auth, signIn } from '@repo/auth';
-import { ThemeToggle } from '@repo/ui/components/theme-toggle';
 import { Button } from '@repo/ui/shadcn/button';
+
+import { ThemeToggle } from './_components/theme-toggle';
 
 export default async function Home() {
 	const session = await auth();

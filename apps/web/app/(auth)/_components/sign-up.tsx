@@ -5,10 +5,10 @@ import { signIn } from 'next-auth/webauthn';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { Button } from '../shadcn/button';
-import { Card, CardContent, CardHeader, CardTitle } from '../shadcn/card';
-import { Input } from '../shadcn/input';
-import { Label } from '../shadcn/label';
+import { Button } from '@repo/ui/shadcn/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@repo/ui/shadcn/card';
+import { Input } from '@repo/ui/shadcn/input';
+import { Label } from '@repo/ui/shadcn/label';
 
 export function SignUp() {
 	const [loading, setLoading] = useState<'google' | 'email' | null>(null);

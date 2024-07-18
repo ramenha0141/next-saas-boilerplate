@@ -1,10 +1,10 @@
 'use client';
 
+import { CircleAlert } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 
-import { CircleAlert } from 'lucide-react';
-import { Alert, AlertDescription, AlertTitle } from '../shadcn/alert';
-import { Card, CardContent, CardHeader, CardTitle } from '../shadcn/card';
+import { Alert, AlertDescription, AlertTitle } from '@repo/ui/shadcn/alert';
+import { Card, CardContent, CardHeader, CardTitle } from '@repo/ui/shadcn/card';
 
 const errors: Record<string, string> = {
 	AccessDenied: 'アクセスが拒否されました',
