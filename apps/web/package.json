@@ -3,10 +3,9 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "bun run --filter @repo/db generate && bun run load_env -- next dev --experimental-https",
-		"build": "bun run --filter @repo/db generate && bun run load_env -- next build",
-		"start": "next start",
-		"load_env": "dotenvx run -f ../../packages/env/.env.development.local --"
+		"dev": "bun run --filter @repo/db generate && next dev --experimental-https",
+		"build": "bun run --filter @repo/db generate && next build",
+		"start": "next start"
 	},
 	"dependencies": {
 		"geist": "^1.3.1",
