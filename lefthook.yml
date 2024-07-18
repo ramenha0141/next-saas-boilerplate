@@ -4,6 +4,9 @@ pre-commit:
             glob: '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}'
             run: bunx @biomejs/biome check --write --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
             stage_fixed: true
+        format_css:
+            glob: '*.css'
+            run: bunx prettier --write {staged_files}
         typecheck:
             glob: '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}'
             run: bun run typecheck
