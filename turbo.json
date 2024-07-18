@@ -1,7 +1,9 @@
 {
 	"$schema": "https://turbo.build/schema.json",
 	"tasks": {
-		"generate": {},
+		"generate": {
+			"cache": false
+		},
 		"build": {
 			"dependsOn": ["^generate", "^build"],
 			"inputs": ["$TURBO_DEFAULT$", ".env", ".env.*"],
