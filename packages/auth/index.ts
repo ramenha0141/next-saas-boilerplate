@@ -1,11 +1,23 @@
 import { PrismaAdapter } from '@auth/prisma-adapter';
-import NextAuth, { type NextAuthConfig, type NextAuthResult } from 'next-auth';
+import NextAuth, {
+	type DefaultSession,
+	type NextAuthConfig,
+	type NextAuthResult,
+} from 'next-auth';
 import Google from 'next-auth/providers/google';
 import Passkey from 'next-auth/providers/passkey';
 import { cache } from 'react';
 
-import { prisma } from '@repo/db';
+import { MemberRole, prisma } from '@repo/db';
 import { env } from '@repo/env';
+
+declare module 'next-auth' {
+	interface Session {
+		user: {
+			id: string;
+		} & DefaultSession['user'];
+	}
+}
 
 export const authConfig: NextAuthConfig = {
 	adapter: PrismaAdapter(prisma),
@@ -39,5 +51,22 @@ export const { GET, POST } = authResult.handlers;
 export const auth: NextAuthResult['auth'] = cache(authResult.auth);
 export const signIn: NextAuthResult['signIn'] = authResult.signIn;
 export const signOut: NextAuthResult['signOut'] = authResult.signOut;
+
+export async function getUser() {
+	return (await auth())?.user;
+}
+
+export async function isAdmin(workspaceId: string, userId: string) {
+	const member = await prisma.member.findUnique({
+		where: {
+			workspaceId_userId: {
+				workspaceId,
+				userId,
+			},
+		},
+	});
+
+	return member?.role === MemberRole.ADMIN;
+}
 
 export * from 'next-auth/react';
