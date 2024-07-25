@@ -4,12 +4,12 @@ import NextAuth, {
 	type NextAuthConfig,
 	type NextAuthResult,
 } from 'next-auth';
-import Google from 'next-auth/providers/google';
-import Passkey from 'next-auth/providers/passkey';
 import { cache } from 'react';
 
 import { MemberRole, prisma } from '@repo/db';
 import { env } from '@repo/env';
+
+import { Amazon } from './amazon';
 
 declare module 'next-auth' {
 	interface Session {
@@ -22,11 +22,10 @@ declare module 'next-auth' {
 export const authConfig: NextAuthConfig = {
 	adapter: PrismaAdapter(prisma),
 	providers: [
-		Google({
-			clientId: env.AUTH_GOOGLE_ID,
-			clientSecret: env.AUTH_GOOGLE_SECRET,
+		Amazon({
+			clientId: env.AUTH_AMAZON_ID,
+			clientSecret: env.AUTH_AMAZON_SECRET,
 		}),
-		Passkey,
 	],
 	secret: env.AUTH_SECRET,
 	pages: {
